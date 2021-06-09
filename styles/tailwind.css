@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer utilities {
   .pattern-topography {
     background-image: url(/img/patterns/topography.svg);
+  }
+
+  .icon-dots-circle-horizontal {
+    background-image: url(/img/icons/dots-circle-horizontal.svg);
+  }
+
+  .icon-dots-circle-horizontal-outline {
+    background-image: url(/img/icons/dots-circle-horizontal-outline.svg);
+  }
+}
+
+@layer base {
+  input[name="top-menu-checkbox"] {
+    @apply icon-dots-circle-horizontal;
+  }
+  input[name="top-menu-checkbox"]:checked {
+    @apply icon-dots-circle-horizontal-outline;
+  }
+
+  input[name="top-menu-checkbox"]:checked + ul.nav {
+    display: block;
   }
 }

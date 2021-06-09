@@ -11,20 +11,25 @@
   </head>
   <body>
     <header>
-      <section class="pattern-topography py-5 px-4">
-        <h1 class="text-3xl font-bold">
+      <section class="pattern-topography pt-5 pb-8">
+        <h1 class="text-2xl font-bold inline ml-5">
           <a href="{{ '/' | url }}">{{ metadata.title }}</a>
         </h1>
-        <h2 class="text-2xl font-light">Ideas to level up our software systems</h2>
+        <input
+          type="checkbox"
+          name="top-menu-checkbox"
+          id="topMenuCheckbox"
+          class="appearance-none align-bottom w-5 h-5 mr-5 mb-1">
+        <ul class="nav hidden sm:block w-full h-15 bg-white pt-5 pb-7 px-5">
+          {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
+        </ul>
+        <h2 class="text-xl font-light mx-5">Ideas to level up our software systems</h2>
       </section>
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
-        {%- for entry in collections.all | eleventyNavigation %}
-          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">
-            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-          </li>
-        {%- endfor %}
-      </ul>
     </header>
     <main
       {% if templateClass %} class="{{ templateClass }}" {% endif %}>
