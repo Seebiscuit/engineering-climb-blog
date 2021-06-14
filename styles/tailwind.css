@@ -2,68 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .pattern-topography {
-    background-image: url(/img/patterns/topography.svg);
-  }
+.tmpl-home #mainHeaderSection {
+  @apply pb-2;
+  min-height: 10rem;
+}
+.tmpl-home #mainHeaderTitle {
+  @apply font-bold text-3xl ml-5 mt-16;
+  font-size: 2rem;
+}
+.tmpl-home #mainHeaderSubTitle {
+  @apply block text-2xl font-light mx-5 text-shadow-md;
+}
 
-  .icon-dots-circle-horizontal {
-    background-image: url(/img/icons/dots-circle-horizontal.svg);
+@media (min-width: 640px) {
+  .tmpl-home #mainHeaderSection {
+    @apply pb-4;
+    min-height: 18rem;
   }
-
-  .icon-dots-circle-horizontal-outline {
-    background-image: url(/img/icons/dots-circle-horizontal-outline.svg);
+  .tmpl-home #mainHeaderTitle {
+    @apply font-bold ml-5 mt-32;
+    font-size: 2.75rem;
+  }
+  .tmpl-home #mainHeaderSubTitle {
+    @apply block text-4xl font-light mx-5 text-shadow-md;
   }
 }
 
-@layer base {
-  input[name="top-menu-checkbox"] {
-    @apply icon-dots-circle-horizontal;
-  }
-  input[name="top-menu-checkbox"]:checked {
-    @apply icon-dots-circle-horizontal-outline;
-  }
+input[name="top-menu-checkbox"] {
+  @apply icon-dots-circle-horizontal;
+}
+input[name="top-menu-checkbox"]:checked {
+  @apply icon-dots-circle-horizontal-outline;
+}
 
-  input[name="top-menu-checkbox"]:checked + ul.nav {
-    display: block;
-  }
+input[name="top-menu-checkbox"]:checked + ul.nav {
+  display: block;
+}
 
-  .nav-item.nav-item-active {
-    @apply text-gray-500;
-  }
+.nav-item.nav-item-active {
+  @apply text-gray-500;
+}
 
-  .nav-item {
-    @apply text-black;
-  }
+.nav-item {
+  @apply text-black;
+}
+
+.pattern-topography {
+  background-image: url(/img/patterns/topography.svg);
+}
+
+.icon-dots-circle-horizontal {
+  background-image: url(/img/icons/dots-circle-horizontal.svg);
+}
+
+.icon-dots-circle-horizontal-outline {
+  background-image: url(/img/icons/dots-circle-horizontal-outline.svg);
 }
 
 @responsive {
-  .tmpl-home #mainHeaderSection {
-    @apply pb-2;
-    min-height: 10rem;
-  }
-  .tmpl-home #mainHeaderTitle {
-    @apply font-bold text-3xl ml-5 mt-16;
-    font-size: 2rem;
-  }
-  .tmpl-home #mainHeaderSubTitle {
-    @apply block text-2xl font-light mx-5 text-shadow-md;
-  }
-
-  @media (min-width: 640px) {
-    .tmpl-home #mainHeaderSection {
-      @apply pb-4;
-      min-height: 18rem;
-    }
-    .tmpl-home #mainHeaderTitle {
-      @apply font-bold ml-5 mt-32;
-      font-size: 2.75rem;
-    }
-    .tmpl-home #mainHeaderSubTitle {
-      @apply block text-4xl font-light mx-5 text-shadow-md;
-    }
-  }
-
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
