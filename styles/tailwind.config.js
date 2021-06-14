@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    content: ["/**/*.njk", "/**/*.md"],
+    content: ["/*.njk", "/posts/**/*.md", "/about/**/*.md", "/_includes/**/*.md"],
     options: {
       safelist: [],
     },
