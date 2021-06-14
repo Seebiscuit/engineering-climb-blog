@@ -1,3 +1,9 @@
-[build]
-  publish = "_site"
-  command = "postcss styles/tailwind.css --o _site/style.css --verbose & DEBUG=* eleventy"
+[
+build
+]
+command = "npm run build"
+
+[
+context.production
+]
+environment = { ELEVENTY_PRODUCTION = true, NODE_ENV = "production" }
