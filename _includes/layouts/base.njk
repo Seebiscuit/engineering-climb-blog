@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" {% if templateClass %} class="{{ templateClass }}" {% endif %}>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,51 +11,28 @@
   </head>
   <body>
     <header>
-      <section class="pattern-topography pt-5 pb-8">
-        <h1 class="text-2xl font-bold inline ml-5">
+      <section id="mainHeaderSection" class="pattern-topography pt-2 pb-3 mb-3 sm:mb-4">
+        <h1 id="mainHeaderTitle" class="text-xl sm:text-3xl font-bold inline-block ml-3 sm:ml-5">
           <a href="{{ '/' | url }}">{{ metadata.title }}</a>
         </h1>
-        <input
-          type="checkbox"
-          name="top-menu-checkbox"
-          id="topMenuCheckbox"
-          class="appearance-none align-bottom w-5 h-5 mr-5 mb-1">
-        <ul class="nav hidden sm:block w-full h-15 bg-white pt-5 pb-7 px-5">
+        <input type="checkbox" name="top-menu-checkbox" id="topMenuCheckbox" class="appearance-none sm:hidden align-bottom w-5 h-5 mr-5 mb-1">
+        <ul class="nav hidden sm:flex sm:justify-between w-full sm:w-64 h-15 bg-white sm:bg-transparent
+            bg-opacity-60 sm:bg-opacity-100
+             pt-1 sm:pt-3 sm:pr-5 pdr-3 pb-7
+            px-5 sm:float-right sm:-m-2">
           {%- for entry in collections.all | eleventyNavigation %}
-            <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">
+            <li class="
+                font-semibold
+                nav-item{% if entry.url == page.url %} nav-item-active{% endif %}">
               <a href="{{ entry.url | url }}">{{ entry.title }}</a>
             </li>
           {%- endfor %}
         </ul>
-        <h2 class="text-xl font-light mx-5">Ideas to level up our software systems</h2>
+        <h2 id="mainHeaderSubTitle" class="header-subtitle hidden">Ideas to level up our software systems</h2>
       </section>
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
     </header>
-    <main
-      {% if templateClass %} class="{{ templateClass }}" {% endif %}>
-      <!-- Delete this message -->
-      <div class="warning">
-        <ol>
-          <li>Edit the
-            <code>_data/metadata.json</code>
-            with your blog’s information.</li>
-          <li>(Optional) Edit
-            <code>.eleventy.js</code>
-            with your
-            <a href="https://www.11ty.dev/docs/config/">configuration preferences</a>.</li>
-          <li>Delete this message from
-            <code>_includes/layouts/base.njk</code>.</li>
-        </ol>
-        <p>
-          <em>This is an
-            <a href="https://www.11ty.dev/">Eleventy project</a>
-            created from the
-            <a href="https://github.com/11ty/eleventy-base-blog">
-              <code>eleventy-base-blog</code>
-              repo</a>.</em>
-        </p>
-      </div>
-      <!-- Stop deleting -->
+    <main class="ml-3 mr-3 sm:ml-5 sm:mr-5">
       {{ content | safe }}
     </main>
     <footer></footer>
