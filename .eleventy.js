@@ -102,9 +102,10 @@ module.exports = function (eleventyConfig) {
       .renderInline(str);
   });
 
-    eleventyConfig.addShortcode("first_image", (post) =>
-      shortCodes.extractFirstImage(post)
-    );
+
+  eleventyConfig.addNunjucksAsyncShortcode("image", shortCodes.imageShortcode);
+
+  eleventyConfig.addShortcode("first_image", shortCodes.extractFirstImage);
 
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({

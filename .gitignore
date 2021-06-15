@@ -1,3 +1,6 @@
 _site/
 _tmp/
 node_modules/
+img/**/*-300.*
+img/**/*-600.*
+img/**/*-768.*
