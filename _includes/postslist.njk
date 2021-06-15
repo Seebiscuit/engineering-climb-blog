@@ -1,12 +1,33 @@
-<ol reversed class="postlist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
-{% for post in postslist | reverse %}
-  <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-    <a href="{{ post.url | url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-    {% for tag in post.data.tags | filterTagList %}
-      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-    {% endfor %}
-  </li>
-{% endfor %}
-</ol>
+<ul>
+  {% for post in postslist | reverse %}
+    <li class="
+      pb-10
+      {% if post.url == url %} postlist-item-active{% endif %}">
+
+      <div class="mb-3 flex flex-col sm:block sm:flex-row">
+        {% first_image post %}
+        <h2 class="block sm:inline-block text-3xl font-semibold">
+          <a href="{{ post.url | url }}" class="postlist-link">
+            {% if post.data.title %}{{ post.data.title }}
+            {% else %}
+              <code>{{ post.url }}</code>
+            {% endif %}
+          </a>
+        </h2>
+        <time class="pl-1 italic" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      </div>
+
+      <p
+        class="mb-3"
+      >{{ post.data.page.excerpt  }}</p>
+
+      <div>
+        {% for tag in post.data.tags | filterTagList %}
+          {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+          <a href="{{ tagUrl | url }}" 
+            class="rounded-full py-2 px-2 bg-gray-500 text-white text-xs">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

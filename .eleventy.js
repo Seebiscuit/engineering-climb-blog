@@ -6,6 +6,8 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
+const shortCodes = require("./shortcodes");
+
 module.exports = function (eleventyConfig) {
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -20,13 +22,18 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
+      "LLL dd yyyy"
     );
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+  });
+
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: "<!-- excerpt -->",
   });
 
   // Get the first `n` elements of a collection.
@@ -72,16 +79,32 @@ module.exports = function (eleventyConfig) {
   });
 
   // Customize Markdown library and settings:
-  let markdownLibrary = markdownIt({
+  let MARKDOWN_OPTIONS = {
     html: true,
     breaks: true,
     linkify: true,
-  }).use(markdownItAnchor, {
+  };
+  let MARKDOWN_ANCHOR_OPTIONS = {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#",
-  });
+  };
+
+  let markdownLibrary = markdownIt(MARKDOWN_OPTIONS).use(
+    markdownItAnchor,
+    MARKDOWN_ANCHOR_OPTIONS
+  );
   eleventyConfig.setLibrary("md", markdownLibrary);
+
+  eleventyConfig.addFilter("toHTML", str => {
+    return new markdownIt(MARKDOWN_OPTIONS)
+      .use(markdownItAnchor, MARKDOWN_ANCHOR_OPTIONS)
+      .renderInline(str);
+  });
+
+    eleventyConfig.addShortcode("first_image", (post) =>
+      shortCodes.extractFirstImage(post)
+    );
 
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
@@ -138,3 +161,4 @@ module.exports = function (eleventyConfig) {
     },
   };
 };
+
