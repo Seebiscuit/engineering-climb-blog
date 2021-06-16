@@ -33,7 +33,7 @@
         {% for tag in post.data.tags | filterTagList %}
           {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
           <a href="{{ tagUrl | url }}" 
-            class="rounded-full py-2 px-2 bg-gray-500 text-white text-xs">{{ tag }}</a>
+            class="rounded-full py-2 px-3 mr-2 bg-gray-500 text-gray-100 text-xs">{{ tag }}</a>
         {% endfor %}
       </div>
     </li>
