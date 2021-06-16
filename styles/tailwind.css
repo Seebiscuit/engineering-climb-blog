@@ -39,6 +39,13 @@
   }
 }
 
+@media (min-width: 768px) {
+  #mainHeaderSection {
+    padding-right: calc(50% - 384px);
+    padding-left: calc(50% - 384px);
+  }
+}
+
 input[name="top-menu-checkbox"] {
   @apply icon-dots-circle-horizontal;
 }
