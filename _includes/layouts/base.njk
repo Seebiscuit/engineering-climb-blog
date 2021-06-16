@@ -11,15 +11,29 @@
   </head>
   <body>
     <header>
-      <section id="mainHeaderSection" class="pattern-topography pt-2 pb-3 mb-3 sm:mb-4">
-        <h1 id="mainHeaderTitle" class="text-xl sm:text-3xl font-bold inline-block ml-3 sm:ml-5">
+      <section id="mainHeaderSection" 
+          class="
+            pattern-topography 
+            pt-2 pb-3 
+            mb-3 sm:mb-4 
+            w-full">
+        <h1 id="mainHeaderTitle" 
+            class="
+              text-xl sm:text-3xl font-bold 
+              inline-block 
+              ml-3 sm:ml-5
+              md:ml-auto md:mr-auto md:w-192 md:block">
           <a href="{{ '/' | url }}">{{ metadata.title }}</a>
         </h1>
         <input type="checkbox" name="top-menu-checkbox" id="topMenuCheckbox" class="appearance-none sm:hidden align-bottom w-5 h-5 mr-5 mb-1">
         <ul class="nav hidden sm:flex sm:justify-between w-full sm:w-64 h-15 bg-white sm:bg-transparent
             bg-opacity-60 sm:bg-opacity-100
-             pt-1 sm:pt-3 sm:pr-5 pdr-3 pb-7
-            px-5 sm:float-right sm:-m-2">
+            pt-1 sm:pt-3 
+            sm:pr-5 pdr-3 
+            pb-7
+            px-5 
+            sm:float-right sm:-m-2
+            md:m-0 md:ml-auto md:mr-auto md:w-192 md:block">
           {%- for entry in collections.all | eleventyNavigation %}
             <li class="
                 font-semibold
@@ -28,11 +42,21 @@
             </li>
           {%- endfor %}
         </ul>
-        <h2 id="mainHeaderSubTitle" class="header-subtitle hidden">Ideas to level up our software systems</h2>
+        <h2 id="mainHeaderSubTitle" 
+            class="
+            header-subtitle 
+            hidden 
+            md:ml-auto md:mr-auto md:w-192 md:block"
+          >Ideas to level up our software systems</h2>
       </section>
       {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
     </header>
-    <main class="ml-3 mr-3 sm:ml-5 sm:mr-5">
+    <main 
+        class="
+          ml-3 sm:ml-5 
+          mr-3 sm:mr-5 
+          w-full md:w-192
+          md:mx-auto">
       {{ content | safe }}
     </main>
     <footer></footer>

@@ -2,29 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-.tmpl-home #mainHeaderSection {
-  @apply pb-2;
-  min-height: 10rem;
-}
-.tmpl-home #mainHeaderTitle {
-  @apply font-bold text-3xl ml-5 mt-16;
-  font-size: 2rem;
-}
-.tmpl-home #mainHeaderSubTitle {
-  @apply block text-2xl font-light mx-5 text-shadow-md;
+@media (max-width: 640px) {
+  .tmpl-home #mainHeaderSection {
+    @apply pb-2 mb-4;
+    min-height: 10rem;
+  }
+  .tmpl-home #mainHeaderTitle {
+    @apply font-bold text-3xl ml-5 mt-16;
+    font-size: 2rem;
+  }
+  .tmpl-home #mainHeaderSubTitle {
+    @apply block text-2xl font-light mx-5 text-shadow-md;
+  }
 }
 
 @media (min-width: 640px) {
   .tmpl-home #mainHeaderSection {
-    @apply pb-4;
+    @apply pb-8 mb-8;
     min-height: 18rem;
   }
   .tmpl-home #mainHeaderTitle {
-    @apply font-bold ml-5 mt-32;
+    @apply font-bold mt-32;
     font-size: 2.75rem;
   }
   .tmpl-home #mainHeaderSubTitle {
-    @apply block text-4xl font-light mx-5 text-shadow-md;
+    @apply block text-4xl font-light text-shadow-md;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .tmpl-home #mainHeaderTitle {
+    @apply ml-5;
+  }
+  .tmpl-home #mainHeaderSubTitle {
+    @apply mx-5;
   }
 }
 

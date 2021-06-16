@@ -5,16 +5,24 @@
       {% if post.url == url %} postlist-item-active{% endif %}">
 
       <div class="mb-3 flex flex-col sm:block sm:flex-row">
-        {% first_image post %}
+
+        <a href="{{ post.url | url }}">
+          {% first_image post %}
+        </a>
+
         <h2 class="block sm:inline-block text-3xl font-semibold">
           <a href="{{ post.url | url }}" class="postlist-link">
-            {% if post.data.title %}{{ post.data.title }}
+            {% if post.data.title %}
+              {{ post.data.title }}
             {% else %}
               <code>{{ post.url }}</code>
             {% endif %}
           </a>
         </h2>
         <time class="pl-1 italic" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <h3 class="font-light text-xl">
+          {{ post.data.subtitle }}
+        </h3>
       </div>
 
       <p

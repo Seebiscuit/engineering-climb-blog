@@ -1,6 +1,11 @@
 module.exports = {
   purge: {
-    content: ["./*.njk", "./posts/**/*.md", "./about/**/*.md", "./_includes/**/*.njk"],
+    content: [
+      "./*.njk",
+      "./posts/**/*.md",
+      "./about/**/*.md",
+      "./_includes/**/*.njk",
+    ],
     options: {
       safelist: [],
     },
@@ -9,6 +14,9 @@ module.exports = {
     extend: {
       colors: {
         change: "transparent",
+      },
+      spacing: {
+        192: "48rem" // 768px
       },
     },
   },
