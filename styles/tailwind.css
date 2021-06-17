@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  p {
+    @apply mb-3
+  }
+}
+
 @media (max-width: 640px) {
   .tmpl-home #mainHeaderSection {
     @apply pb-2 mb-4;
