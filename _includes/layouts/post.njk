@@ -4,10 +4,6 @@ templateClass: tmpl-post
 permalink: "{{ title | slug }}/"
 ---
 
-{%- if featuredImage %}
-{% image featuredImage, featuredImageAlt, featuredImageSize %}
-{% endif %}
-
 <h2 class="block sm:inline-block text-3xl font-bold sm:font-semibold"
 >{{ title }}</h2>
 
@@ -27,7 +23,11 @@ permalink: "{{ title | slug }}/"
   {% endfor %}
 </div>
 
-<div class="post-content">{{ content | safe }}</div>
+{%- if featuredImage %}
+{% image featuredImage, featuredImageAlt, featuredImageSize %}
+{% endif %}
+
+<div class="post-content mt-10">{{ content | safe }}</div>
 
 {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
