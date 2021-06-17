@@ -3,15 +3,31 @@ layout: layouts/base.njk
 templateClass: tmpl-post
 permalink: "{{ title | slug }}/"
 ---
-<h1>{{ title }}</h1>
 
-<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-{%- for tag in tags | filterTagList -%}
-{%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
-<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{%- endfor %}
+{%- if featuredImage %}
+{% image featuredImage, featuredImageAlt, featuredImageSize %}
+{% endif %}
 
-{{ content | safe }}
+<h2 class="block sm:inline-block text-3xl font-semibold"
+>{{ title }}</h1>
+
+<time class="pl-1 italic" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+
+{%- if subtitle %}
+<h3 class="font-light text-xl">
+  {{ subtitle }}
+</h3>
+{% endif %}
+
+<div class="mb-6">
+  {% for tag in tags | filterTagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+    <a href="{{ tagUrl | url }}"
+      class="underline-dotted mr-1 text-gray-700 text-xs">{{ tag }}</a>
+  {% endfor %}
+</div>
+
+<div class="post-content">{{ content | safe }}</div>
 
 {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}

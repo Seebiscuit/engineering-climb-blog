@@ -6,9 +6,11 @@
 
       <div class="mb-3 flex flex-col sm:block sm:flex-row">
 
-        <a href="{{ post.url | url }}">
-          {% first_image post %}
-        </a>
+        {%- if post.data.featuredImage %}
+          <a href="{{ post.url | url }}">
+            {% image post.data.featuredImage, post.data.featuredImageAlt, post.data.featuredImageSize %}
+          </a>
+        {% endif %}
 
         <h2 class="block sm:inline-block text-3xl font-semibold">
           <a href="{{ post.url | url }}" class="postlist-link">
@@ -20,20 +22,22 @@
           </a>
         </h2>
         <time class="pl-1 italic" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        
+        {%- if post.data.subtitle %}
         <h3 class="font-light text-xl">
           {{ post.data.subtitle }}
         </h3>
+        {% endif %}
+
       </div>
 
-      <p
-        class="mb-3"
-      >{{ post.data.page.excerpt  }}</p>
+      <p>{{ post.data.page.excerpt  }}</p>
 
-      <div>
+      <div class="mt-3">
         {% for tag in post.data.tags | filterTagList %}
           {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
           <a href="{{ tagUrl | url }}" 
-            class="rounded-full py-2 px-3 mr-2 bg-gray-500 text-gray-100 text-xs">{{ tag }}</a>
+            class="underline-dotted mr-1 text-gray-700 text-xs">{{ tag }}</a>
         {% endfor %}
       </div>
     </li>
