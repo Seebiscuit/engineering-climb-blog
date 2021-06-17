@@ -32,8 +32,8 @@
 
 @media (min-width: 768px) {
   #mainHeaderSection {
-    padding-right: calc(50% - 384px);
-    padding-left: calc(50% - 384px);
+    padding-right: calc(50% - 377px);
+    padding-left: calc(50% - 365px);
   }
 }
 
@@ -93,8 +93,8 @@ input[name="top-menu-checkbox"]:checked + ul.nav {
 }
 
 .underline-dotted {
-  text-decoration:underline;
-  text-decoration-style: dotted;  
+  text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 @responsive {
