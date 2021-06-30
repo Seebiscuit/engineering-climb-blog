@@ -16,7 +16,7 @@ Coding, happened to me. Like so many of us in the field, I took a sip from the c
 
 My early experience, I've come to learn, shares many parallels with other self-taught Software Engineers (and possibly many Comp. Sci. graduates). There's the freshness of discovery and the rush of creative power. There's the sweat and blood sunk into long debugging sessions. There's the frequent mind expansion, the fog and the dawning of understanding. Early programming is the time when almost anything is possible just beyond the horizon.
 
-Tinkering can last for years. From what I've seen, the maturing of the Software Engineer takes time and pressure. From the tinkerer, the hacker, the duct tap master, eventually emerges, the Software Engineer.And what exactly is this evolved specimen? How is the engineer different from the tinkerer? 
+Tinkering can last for years. From what I've seen, the maturing of the Software Engineer takes time and pressure. From the tinkerer, the hacker, the duct tap master, eventually emerges, the Software Engineer. And what exactly is this evolved specimen? How is the engineer different from the tinkerer? 
 
 A working description I find handy comes from Fred Brooks (who wrote one of the seminal books on the philosophy&mdash;and practice&mdash;of software engineering, [_The Mythical Man-Month_](https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959/). Brooks notes that many great ideas are born from two guys in a garage. The question begging to be asked is, if these two guys are such a hit, why don't we re-organize all of our engineering teams into two-people groups and stick them in a damp, cramped space? 
 
