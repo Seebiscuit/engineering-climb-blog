@@ -4,7 +4,12 @@
 
 @layer base {
   p {
-    @apply mb-3
+    @apply mb-3;
+  }
+
+  a {
+    @apply font-semibold underline;
+    text-decoration-style: dotted;
   }
 }
 
@@ -54,12 +59,22 @@ input[name="top-menu-checkbox"]:checked + ul.nav {
   display: block;
 }
 
+#mainHeaderTitle a {
+  font-weight: inherit;
+  text-decoration: inherit;
+}
+
 .nav-item.nav-item-active {
   @apply text-gray-500;
 }
 
 .nav-item {
   @apply text-black;
+}
+
+.nav-item a {
+  font-weight: inherit;
+  text-decoration: inherit;
 }
 
 .pattern-topography {
